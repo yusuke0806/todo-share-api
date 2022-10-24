@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TodoShareApi.Data;
+using TodoShareApi.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,8 @@ builder.Services.AddDbContext<TodoDataContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("TodoDatabase"));
 });
+
+builder.Services.AddScoped<ITagRepository, TagRepository>();
 
 var app = builder.Build();
 
