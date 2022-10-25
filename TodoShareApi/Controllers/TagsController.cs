@@ -1,7 +1,5 @@
 using System.Data.Common;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using TodoShareApi.Data;
 using TodoShareApi.Models;
 using TodoShareApi.Repositories;
 

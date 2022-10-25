@@ -24,7 +24,7 @@ namespace TodoShareApi.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Todos",
+                name: "TodoTasks",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -38,9 +38,9 @@ namespace TodoShareApi.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Todos", x => x.Id);
+                    table.PrimaryKey("PK_TodoTasks", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Todos_Tags_TagId",
+                        name: "FK_TodoTasks_Tags_TagId",
                         column: x => x.TagId,
                         principalTable: "Tags",
                         principalColumn: "Id",
@@ -48,15 +48,15 @@ namespace TodoShareApi.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Todos_TagId",
-                table: "Todos",
+                name: "IX_TodoTasks_TagId",
+                table: "TodoTasks",
                 column: "TagId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Todos");
+                name: "TodoTasks");
 
             migrationBuilder.DropTable(
                 name: "Tags");

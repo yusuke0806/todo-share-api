@@ -9,5 +9,5 @@ public class Tag
     [Column(TypeName = "varchar(255)")]
     public string Name { get; set; }
     
-    public List<Todo>? Todos { get; set; }
+    public List<TodoTask>? TodoTasks { get; set; }
 }

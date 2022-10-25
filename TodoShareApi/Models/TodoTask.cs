@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TodoShareApi.Models;
-public class Todo
+public class TodoTask
 {
     public int Id { get; set; }
     

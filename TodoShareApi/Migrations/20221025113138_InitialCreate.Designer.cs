@@ -12,7 +12,7 @@ using TodoShareApi.Data;
 namespace TodoShareApi.Migrations
 {
     [DbContext(typeof(TodoDataContext))]
-    [Migration("20221023112410_InitialCreate")]
+    [Migration("20221025113138_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,7 +41,7 @@ namespace TodoShareApi.Migrations
                     b.ToTable("Tags");
                 });
 
-            modelBuilder.Entity("TodoShareApi.Models.Todo", b =>
+            modelBuilder.Entity("TodoShareApi.Models.TodoTask", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -72,13 +72,13 @@ namespace TodoShareApi.Migrations
 
                     b.HasIndex("TagId");
 
-                    b.ToTable("Todos");
+                    b.ToTable("TodoTasks");
                 });
 
-            modelBuilder.Entity("TodoShareApi.Models.Todo", b =>
+            modelBuilder.Entity("TodoShareApi.Models.TodoTask", b =>
                 {
                     b.HasOne("TodoShareApi.Models.Tag", "Tag")
-                        .WithMany("Todos")
+                        .WithMany("TodoTasks")
                         .HasForeignKey("TagId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -88,7 +88,7 @@ namespace TodoShareApi.Migrations
 
             modelBuilder.Entity("TodoShareApi.Models.Tag", b =>
                 {
-                    b.Navigation("Todos");
+                    b.Navigation("TodoTasks");
                 });
 #pragma warning restore 612, 618
         }
