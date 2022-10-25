@@ -17,6 +17,7 @@ builder.Services.AddDbContext<TodoDataContext>(options =>
 });
 
 builder.Services.AddScoped<ITagRepository, TagRepository>();
+builder.Services.AddScoped<ITodoTaskRepository, TodoTaskRepository>();
 
 var app = builder.Build();
 
