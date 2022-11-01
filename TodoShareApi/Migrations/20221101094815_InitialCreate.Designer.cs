@@ -12,7 +12,7 @@ using TodoShareApi.Data;
 namespace TodoShareApi.Migrations
 {
     [DbContext(typeof(TodoDataContext))]
-    [Migration("20221025113138_InitialCreate")]
+    [Migration("20221101094815_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,17 +55,17 @@ namespace TodoShareApi.Migrations
                     b.Property<DateTimeOffset>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTimeOffset>("Deadline")
+                    b.Property<DateTimeOffset?>("Deadline")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTimeOffset>("DeletedAt")
+                    b.Property<DateTimeOffset?>("DeletedAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("varchar(255)");
 
-                    b.Property<int>("TagId")
+                    b.Property<int?>("TagId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -79,9 +79,7 @@ namespace TodoShareApi.Migrations
                 {
                     b.HasOne("TodoShareApi.Models.Tag", "Tag")
                         .WithMany("TodoTasks")
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TagId");
 
                     b.Navigation("Tag");
                 });
