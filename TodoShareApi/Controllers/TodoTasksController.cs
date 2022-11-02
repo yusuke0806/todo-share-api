@@ -17,9 +17,9 @@ public class TodoTasksController : Controller
     }
     
     [HttpGet]
-    public ActionResult<List<TodoTask>> Get()
+    public async Task<IEnumerable<TodoTask>> Get()
     {
-        return Ok(_todoTaskRepository.GetAsync());
+        return await _todoTaskRepository.GetAsync();
     }
     
     [HttpPost]
